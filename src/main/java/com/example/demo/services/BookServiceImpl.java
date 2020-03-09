@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.demo.dto.BookDTO;
+import com.example.demo.mapper.BookMapper;
 import com.example.demo.model.Book;
 import com.example.demo.repository.BookRepository;
 
@@ -20,20 +22,33 @@ public class BookServiceImpl implements BookService {
     @Setter
     private BookRepository repository;
 
-    public List<Book> getAllBook() {
-        return repository.findAll();
+    @Autowired
+    private BookMapper bookMapper;
+
+    public List<BookDTO> getAllBook() {
+        return bookMapper.bookListToBookDTOList(repository.findAll());
     }
 
-    public Book getOneBook(Long id) {
-        return repository.findById(id).get();
+    public BookDTO getOneBook(Long id) {
+        return bookMapper.bookToBookDTO(repository.findById(id).get());
     }
 
-    public Book createBook(Book book) {
-        return repository.save(book);
+    public BookDTO createBook(BookDTO book) {
+        Book entity = bookMapper.bookDTOToBook(book);
+        return bookMapper.bookToBookDTO(repository.save(entity));
+    }
+
+    public BookDTO rateBook(Long id, Float rate) {
+        BookDTO book = getOneBook(id);
+        book.setRatecount(book.getRatecount() + 1);
+        book.setRate(rate + book.getRate());
+        Book entity = bookMapper.bookDTOToBook(book);
+        return bookMapper.bookToBookDTO(repository.save(entity));
     }
 
     public boolean deleteBook(Long id) {
         repository.deleteById(id);
         return true;
     }
+
 }

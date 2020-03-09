@@ -9,26 +9,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "books")
 public class Book implements Serializable {
 
     @Id
-    @Getter
-    @Setter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    @Getter
-    @Setter
+
     @Column(name = "title")
     private String title;
-    @Getter
-    @Setter
+
     @Column(name = "author")
     private String author;
 
+    @Column(name = "rate")
+    private Float rate = (float) 5;
+
+    @Column(name = "ratecount")
+    private Long ratecount = (long) 1;
 }

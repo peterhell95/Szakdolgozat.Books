@@ -2,14 +2,16 @@ package com.example.demo.services;
 
 import java.util.List;
 
-import com.example.demo.model.Book;
+import com.example.demo.dto.BookDTO;
 
 public interface BookService {
-    public List<Book> getAllBook();
+    public List<BookDTO> getAllBook();
 
-    public Book getOneBook(Long id);
+    public BookDTO getOneBook(Long id);
 
-    public Book createBook(Book book);
+    public BookDTO createBook(BookDTO book);
+
+    public BookDTO rateBook(Long id, Float rate);
 
     public boolean deleteBook(Long id);
 }
