@@ -39,7 +39,7 @@ public class BookController {
 
     @PutMapping("/update")
     public BookDTO updateBook(@RequestBody BookDTO book) {
-        return service.createBook(book);
+        return service.updateBook(book);
     }
 
     @PutMapping("/{id}/rate/{rate}")

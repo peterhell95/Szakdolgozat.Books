@@ -11,6 +11,8 @@ public interface BookService {
 
     public BookDTO createBook(BookDTO book);
 
+    public BookDTO updateBook(BookDTO book);
+
     public BookDTO rateBook(Long id, Float rate);
 
     public boolean deleteBook(Long id);

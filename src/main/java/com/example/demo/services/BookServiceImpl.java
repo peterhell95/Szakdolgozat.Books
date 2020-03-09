@@ -38,11 +38,16 @@ public class BookServiceImpl implements BookService {
         return bookMapper.bookToBookDTO(repository.save(entity));
     }
 
+    public BookDTO updateBook(BookDTO book) {
+        Book entity = bookMapper.bookDTOToBookUpdate(book);
+        return bookMapper.bookToBookDTO(repository.save(entity));
+    }
+
     public BookDTO rateBook(Long id, Float rate) {
         BookDTO book = getOneBook(id);
         book.setRatecount(book.getRatecount() + 1);
         book.setRate(rate + book.getRate());
-        Book entity = bookMapper.bookDTOToBook(book);
+        Book entity = bookMapper.bookDTOToBookUpdate(book);
         return bookMapper.bookToBookDTO(repository.save(entity));
     }
 
