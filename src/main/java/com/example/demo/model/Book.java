@@ -32,4 +32,7 @@ public class Book implements Serializable {
 
     @Column(name = "ratecount")
     private Long ratecount = (long) 1;
+
+    @Column(name = "price")
+    private Integer price;
 }

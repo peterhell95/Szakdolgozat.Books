@@ -20,4 +20,6 @@ public class BookDTO {
     private Float rate;
 
     private Long ratecount;
+
+    private Long price;
 }
