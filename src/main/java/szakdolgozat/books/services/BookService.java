@@ -1,8 +1,8 @@
-package com.example.demo.services;
+package szakdolgozat.books.services;
 
 import java.util.List;
 
-import com.example.demo.dto.BookDTO;
+import szakdolgozat.books.dto.BookDTO;
 
 public interface BookService {
     public List<BookDTO> getAllBook();

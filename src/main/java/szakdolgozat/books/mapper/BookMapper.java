@@ -1,4 +1,4 @@
-package com.example.demo.mapper;
+package szakdolgozat.books.mapper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +8,8 @@ import org.mapstruct.IterableMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-import com.example.demo.dto.BookDTO;
-import com.example.demo.model.Book;
+import szakdolgozat.books.dto.BookDTO;
+import szakdolgozat.books.model.Book;
 
 @Mapper
 public interface BookMapper {

@@ -1,4 +1,4 @@
-package com.example.demo.dto;
+package szakdolgozat.books.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,4 +1,4 @@
-package com.example.demo.services;
+package szakdolgozat.books.services;
 
 import java.util.List;
 
@@ -6,13 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.demo.dto.BookDTO;
-import com.example.demo.mapper.BookMapper;
-import com.example.demo.model.Book;
-import com.example.demo.repository.BookRepository;
-
 import lombok.Getter;
 import lombok.Setter;
+import szakdolgozat.books.dto.BookDTO;
+import szakdolgozat.books.mapper.BookMapper;
+import szakdolgozat.books.model.Book;
+import szakdolgozat.books.repository.BookRepository;
 
 @Service
 @Transactional

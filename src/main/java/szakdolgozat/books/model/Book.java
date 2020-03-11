@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package szakdolgozat.books.model;
 
 import java.io.Serializable;
 
