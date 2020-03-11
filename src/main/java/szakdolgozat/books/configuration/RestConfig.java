@@ -1,5 +1,5 @@
 
-package com.example.demo.configuration;
+package szakdolgozat.books.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

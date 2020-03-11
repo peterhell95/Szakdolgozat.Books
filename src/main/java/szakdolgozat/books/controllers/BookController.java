@@ -1,4 +1,4 @@
-package com.example.demo.controllers;
+package szakdolgozat.books.controllers;
 
 import java.util.List;
 
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.dto.BookDTO;
-import com.example.demo.services.BookService;
+import szakdolgozat.books.dto.BookDTO;
+import szakdolgozat.books.services.BookService;
 
 @RestController
 @RequestMapping("/book")
