@@ -16,10 +16,10 @@ services:
          - POSTGRES_DB=postgres
     restart: unless-stopped
 # APP*****************************************
-  demo:
-    image: demo:latest
+  books:
+    image: books:latest
     network_mode: bridge
-    container_name: demo
+    container_name: books
     expose:
       - 8080
     ports:
