@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import szakdolgozat.books.dto.BookDTO;
@@ -25,6 +26,24 @@ public class BookController {
     @GetMapping("/list")
     public List<BookDTO> getAllBook() {
         return service.getAllBook();
+    }
+
+    @GetMapping("/searchByName")
+    public List<BookDTO> getBooksByName(@RequestParam(value = "filter") String filter) {
+
+        return service.getBooksByName(filter);
+    }
+
+    @GetMapping("/searchByPrice")
+    public List<BookDTO> getBooksByPrice(@RequestParam(value = "filter") Integer filter, @RequestParam(value = "filter2") Integer filter2) {
+
+        return service.getBooksByPrice(filter, filter2);
+    }
+
+    @GetMapping("/searchByRate")
+    public List<BookDTO> getBooksByRate(@RequestParam(value = "filter") Integer filter, @RequestParam(value = "filter2") Integer filter2) {
+
+        return service.getBooksByRate(filter, filter2);
     }
 
     @GetMapping("/list/{id}")

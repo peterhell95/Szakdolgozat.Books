@@ -35,4 +35,6 @@ public class Book implements Serializable {
 
     @Column(name = "price")
     private Integer price;
+
+    // private Float realrate = rate / ratecount;
 }

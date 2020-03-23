@@ -22,4 +22,6 @@ public class BookDTO {
     private Long ratecount;
 
     private Long price;
+
+    //private Float realrate = rate / ratecount;
 }
