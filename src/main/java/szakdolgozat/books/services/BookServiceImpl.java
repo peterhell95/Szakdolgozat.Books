@@ -1,9 +1,6 @@
 package szakdolgozat.books.services;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,51 +30,6 @@ public class BookServiceImpl implements BookService {
 
     public BookDTO getOneBook(Long id) {
         return bookMapper.bookToBookDTO(repository.findById(id).get());
-    }
-
-    public List<BookDTO> getBooksByPrice(Integer filter, Integer filter2) {
-        List<BookDTO> filteredList = Collections.<BookDTO>emptyList();
-        if (filter == null || filter2 == null)
-            return filteredList;
-
-        filteredList = bookMapper.bookListToBookDTOList(repository.findAllByPriceBetween(filter, filter2));
-
-        //Clear the same elements 
-        Set<BookDTO> set = new HashSet<>(filteredList);
-        filteredList.clear();
-        filteredList.addAll(set);
-
-        return filteredList;
-    }
-
-    public List<BookDTO> getBooksByRate(Integer filter, Integer filter2) {
-        List<BookDTO> filteredList = Collections.<BookDTO>emptyList();
-        if (filter == null || filter2 == null)
-            return filteredList;
-
-        /*filteredList = bookMapper.bookListToBookDTOList(repository.findAllByRealrateBetween(filter, filter2));
-        
-        //Clear the same elements 
-        Set<BookDTO> set = new HashSet<>(filteredList);
-        filteredList.clear();
-        filteredList.addAll(set);*/
-
-        return filteredList;
-    }
-
-    public List<BookDTO> getBooksByName(String filter) {
-        if (filter.isEmpty())
-            return bookMapper.bookListToBookDTOList(repository.findAll());
-
-        List<BookDTO> filteredList = bookMapper.bookListToBookDTOList(repository.findAllByTitleContaining(filter));
-        filteredList.addAll(bookMapper.bookListToBookDTOList(repository.findAllByAuthorContaining(filter)));
-
-        //Clear the same elements 
-        Set<BookDTO> set = new HashSet<>(filteredList);
-        filteredList.clear();
-        filteredList.addAll(set);
-
-        return filteredList;
     }
 
     public BookDTO createBook(BookDTO book) {
