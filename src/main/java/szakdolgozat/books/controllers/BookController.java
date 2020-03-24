@@ -42,11 +42,6 @@ public class BookController {
         return service.updateBook(book);
     }
 
-    @PutMapping("/{id}/rate/{rate}")
-    public BookDTO rateBook(@PathVariable Long id, @PathVariable Float rate) {
-        return service.rateBook(id, rate);
-    }
-
     @DeleteMapping("/delete/{id}")
     public void deleteBook(@PathVariable Long id) {
         service.deleteBook(id);
