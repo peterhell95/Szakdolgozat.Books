@@ -16,7 +16,7 @@ import szakdolgozat.books.dto.BookDTO;
 import szakdolgozat.books.services.BookService;
 
 @RestController
-@RequestMapping("/book")
+@RequestMapping("/api/book")
 public class BookController {
 
     @Autowired
@@ -43,7 +43,7 @@ public class BookController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteBook(@PathVariable Long id) {
-        service.deleteBook(id);
+    public boolean deleteBook(@PathVariable Long id) {
+        return service.deleteBook(id);
     }
 }
