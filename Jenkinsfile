@@ -37,5 +37,10 @@ pipeline {
                 bat 'docker push peterhell95/books:jenkins' 
             }
         }
+        stage ('Deploy') {
+            steps {
+                bat 'kubectl apply -f books-deployment.yaml' 
+            }
+        }
     }
 }
