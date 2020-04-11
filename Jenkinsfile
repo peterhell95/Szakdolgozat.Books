@@ -38,11 +38,12 @@ pipeline {
             }
         }
         
-        stage ('Deploy') {
-            steps {
-            withKubeConfig([serverUrl: 'https://192.168.41.137:8443']){
-                bat 'kubectl apply -f books-deployment.yaml --record' 
-                }
+        stage('Deploy Patient App') {
+    	steps {
+        withCredentials([
+            string(credentialsId: 'kubernetes', variable: 'api_token')]) {
+             sh 'kubectl --token $api_token --server https://192.168.41.137:8443 --insecure-skip-tls-verify=true apply -f books-deployment.yaml '
+               }
             }
         }
     }
