@@ -41,7 +41,7 @@ pipeline {
         stage ('Deploy') {
             steps {
             withKubeConfig([serverUrl: 'https://192.168.41.137:8443']){
-                bat 'kubectl apply -f books-deployment.yaml' 
+                bat 'kubectl apply -f books-deployment.yaml --record' 
                 }
             }
         }
