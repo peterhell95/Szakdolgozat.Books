@@ -21,7 +21,7 @@ spec:
         app: books
     spec:
       containers:
-        - image: peterhell95/books:kubernetes
+        - image: peterhell95/books:jenkins
           imagePullPolicy: Always
           name: books
           ports:
