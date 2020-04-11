@@ -37,12 +37,5 @@ pipeline {
                 bat 'docker push peterhell95/books:jenkins' 
             }
         }
-        stage ('Deploy') {
-            steps {
-            withKubeConfig([serverUrl: 'https://192.168.41.137:8443']){
-                bat 'kubectl apply -f books-deployment.yaml' 
-                }
-            }
-        }
     }
 }
