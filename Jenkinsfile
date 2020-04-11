@@ -42,7 +42,7 @@ pipeline {
     	steps {
         withCredentials([
             string(credentialsId: 'my_kubernetes2', variable: 'api_token')]) {
-             bat 'kubectl apply -f books-deployment.yaml '
+             bat 'kubectl apply -f books-deployment.yaml --record'
                }
             }
         }
