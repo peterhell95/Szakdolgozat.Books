@@ -42,7 +42,7 @@ pipeline {
     	steps {
         withCredentials([
             string(credentialsId: 'my_kubernetes2', variable: 'api_token')]) {
-             bat 'kubectl apply -f books-deployment.yaml --record'
+             bat 'kubectl --insecure-skip-tls-verify=true apply -f books-deployment.yaml --record'
                }
             }
         }
