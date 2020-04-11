@@ -41,7 +41,7 @@ pipeline {
         stage('Deploy Patient App') {
     	steps {
         withCredentials([
-            string(credentialsId: 'kubernetes', variable: 'api_token')]) {
+            string(credentialsId: 'my_kubernetes2', variable: 'api_token')]) {
              sh 'kubectl --token $api_token --server https://192.168.41.137:8443 --insecure-skip-tls-verify=true apply -f books-deployment.yaml '
                }
             }
