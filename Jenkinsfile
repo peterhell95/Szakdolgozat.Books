@@ -45,13 +45,5 @@ pipeline {
   			}
         }
     	
-        stage('Deploy Patient App') {
-    	steps {
-        withCredentials([
-            string(credentialsId: 'my_kubernetes2', variable: 'api_token')]) {
-             bat 'kubectl --insecure-skip-tls-verify=true apply -f books-deployment.yaml --record'
-               }
-            }
-        }
     }
 }
