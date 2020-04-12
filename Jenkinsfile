@@ -38,10 +38,13 @@ pipeline {
             }
         }
         stage('Apply Kubernetes files') {
-    		withKubeConfig([credentialsId: 'my_kubernetes2', variable: 'api_token', serverUrl: 'https://192.168.41.137:8443']) {
+        steps{
+        	withKubeConfig([credentialsId: 'my_kubernetes2', variable: 'api_token', serverUrl: 'https://192.168.41.137:8443']) {
       			bat 'kubectl apply -f books-deployment.yaml'
-   			}
-  		}
+   				}
+  			}
+        }
+    	
         stage('Deploy Patient App') {
     	steps {
         withCredentials([
