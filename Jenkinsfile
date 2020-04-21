@@ -39,7 +39,7 @@ pipeline {
         }
         stage('Apply Kubernetes files') {
         	steps{
-        	withKubeConfig([credentialsId: 'my_kubernetes2',  serverUrl: 'https://192.168.41.137:8443']) {
+        	withKubeConfig([credentialsId: 'my_kubernetes2',  serverUrl: 'https://192.168.63.188:8443']) {
       			bat 'kubectl apply -f books-deployment.yaml'
    				}
   			}
